@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Field from "../components/form/Field";
 
 const Formular = () => {
   const [state, setState] = useState({
@@ -34,19 +35,16 @@ const Formular = () => {
   return (
     <main>
       <form action="" onSubmit={showData}>
-        <div className="mb-3">
-          <label htmlFor="nom" className="pr-1">
-            Votre nom
-          </label>
-          <input
-            type="text"
-            name="nom"
-            id="nom"
-            className="border brder-gray-100 px-1.5 py-2 outline-none"
-            value={state.nom}
-            onChange={handleInput}
-          />
-        </div>
+        <Field
+          name="nom"
+          value={state.nom}
+          onChange={handleInput}
+          className={{
+            input: "border brder-gray-100 px-1.5 py-2 outline-none",
+          }}
+        >
+          Votre nom
+        </Field>
         <div className="mb-3">
           <label htmlFor="message" className="pr-1">
             Votre message
@@ -92,6 +90,16 @@ const Formular = () => {
             <option value="ia">IA</option>
             <option value="design">Design</option>
           </select>
+        </div>
+        {/* Input non suivis ou non controller par React */}
+        <div>
+          <label htmlFor="test">Test</label>
+          <input type="text" value={undefined} />
+        </div>
+        {/* Un autre champ non controller par React */}
+        <div>
+          <label htmlFor="test">Test</label>
+          <input type="text" value={undefined} />
         </div>
         <div>
           <label htmlFor="remember">Se souvenir de moi</label>
