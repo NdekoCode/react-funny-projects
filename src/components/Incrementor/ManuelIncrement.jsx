@@ -19,18 +19,28 @@ const ManuelIncrement = () => {
       timer,
     }));
   };
+  const method = state.timer ? pause : play;
+  const text = state.timer ? "Pause" : "Play";
+  const reset = () => {
+    setState((state) => ({
+      ...state,
+      count: 0,
+      timer: window.clearInterval(state.timer),
+    }));
+    play();
+  };
   useEffect(() => {
     play();
     return () => {
-      pause();
+      window.clearInterval(state.timer);
     };
   }, []);
   return (
     <div>
       {state.count} <button onClick={increment}>Incrementer</button>
-      <div className="flex items-center mt-5">
-        <button onClick={pause}>Pause</button>
-        <button onClick={play}>Play</button>
+      <div className="flex items-center justify-center mt-5">
+        <button onClick={method}>{text}</button>
+        <button onClick={reset}>Reset</button>
       </div>
     </div>
   );
