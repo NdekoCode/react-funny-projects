@@ -1,15 +1,12 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
-import ManuelIncrement from "./components/ManuelIncrement";
+import { Routes, Route } from "react-router-dom";
+import Incrementor from "./pages/Incrementor";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <ManuelIncrement />
-    </div>
+    <Routes>
+      <Route path="increment" element={<Incrementor />} />{" "}
+    </Routes>
   );
 }
 
