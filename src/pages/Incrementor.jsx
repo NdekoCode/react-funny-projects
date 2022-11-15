@@ -1,5 +1,5 @@
 import "../App.css";
-import ManuelIncrement from "../components/ManuelIncrement";
+import ManuelIncrement from "../components/Incrementor/ManuelIncrement";
 const Incrementor = () => {
   return (
     <div className="App">
