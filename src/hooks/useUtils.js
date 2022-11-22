@@ -1,0 +1,1 @@
+function useFetch(url, data) {}
