@@ -2,23 +2,18 @@ import React, { useState } from "react";
 import BoilingVerdict from "./BoilingVerdict";
 
 const Calculator = () => {
-  const [userTemp, setTemp] = useState(0);
-  const handleTempChange = (evt) => {
-    const name = evt.currentTarget.value;
-    const value = evt.currentTarget.value;
-    setTemp(value);
-  };
+  const [temperature, setTemp] = useState(0);
   return (
     <>
       <form>
         <div className="form-group mb-3">
-          <label htmlFor="temp">Temperature</label>
+          <label htmlFor="celcius">Temperature (en Celcius) </label>
           <input
             className="form-control"
             type="text"
-            name="temp"
-            id="temp"
-            value={userTemp}
+            name="celcius"
+            id="celcius"
+            value={temperature}
             onChange={handleTempChange}
           />
         </div>
@@ -28,7 +23,7 @@ const Calculator = () => {
           </button>
         </div>
       </form>
-      <BoilingVerdict celsius={userTemp} />
+      <BoilingVerdict celsius={parseFloat(temperature)} />
     </>
   );
 };

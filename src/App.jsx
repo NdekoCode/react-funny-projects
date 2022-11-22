@@ -1,8 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Converter from "./pages/Converter";
 import Formular from "./pages/Formular";
 import Home from "./pages/Home";
 import Incrementor from "./pages/Incrementor";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/form" element={<Formular />} />
       <Route path="/converter" element={<Converter />} />
       <Route path="/" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
