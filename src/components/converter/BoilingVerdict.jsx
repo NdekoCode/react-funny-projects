@@ -4,9 +4,13 @@ const BoilingVerdict = ({ celsius }) => {
   return (
     <>
       {celsius >= 100 ? (
-        <div className="alert alert-success">L'eau bout</div>
+        <div className="p-2 my-1 rounded bg-green-200 text-gray-800">
+          L'eau bout
+        </div>
       ) : (
-        <div className="alert alert-danger">L'eau ne bout pas</div>
+        <div className="px-2 py-2.5 my-1 rounded bg-red-200 text-red-800">
+          L'eau ne bout pas
+        </div>
       )}
     </>
   );
