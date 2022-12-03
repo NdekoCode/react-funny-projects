@@ -11,7 +11,9 @@ const ProductTable = ({ products }) => {
         <ProductCategoryRow category={lastCategory} key={index} index={index} />
       );
     }
-    rows.push(<ProductRow product={product} key={index} index={index} />);
+    rows.push(
+      <ProductRow product={product} key={product.name} index={index} />
+    );
   });
   return (
     <table className="table-auto text-gray-500 w-full text-sm border rounded-lg shadow-md">
