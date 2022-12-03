@@ -10,26 +10,18 @@ const FilterableProductTable = ({ products }) => {
     inStockOnly: false,
   });
   const { filterText, inStockOnly } = state;
-  const handleSearch = (evt) => {
-    const name = evt.target.name;
-    console.log(evt.target.type);
-    let value;
-    if (evt.target.type === "checkbox") {
-      value = evt.target.checked;
-    } else {
-      value = evt.target.value;
-    }
-    console.log(value);
-    setState((d) => ({ ...d, [name]: value }));
-  };
   return (
     <>
       <SearchBar
         filterText={filterText}
         inStockOnly={inStockOnly}
-        handleFilterChange={handleSearch}
+        setState={setState}
       />
-      <ProductTable products={products} />
+      <ProductTable
+        products={products}
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+      />
     </>
   );
 };

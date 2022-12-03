@@ -14,6 +14,10 @@ export function fahrenheitToCelcius(tempFahr) {
 export function celciusToFahrenheit(tempCelc) {
   return tryConvert((tempCelc * 9) / 5 + 32);
 }
+export function wait(t) {
+  const start = Date.now();
+  while (Date.now() - start < t) {}
+}
 export const PRODUCTS = [
   {
     category: "Sporting Goods",

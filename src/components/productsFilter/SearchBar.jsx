@@ -1,6 +1,21 @@
-const SearchBar = ({ filterText, inStockOnly, handleFilterChange }) => {
+import { memo } from "react";
+
+const SearchBar = memo(({ filterText, inStockOnly, setState }) => {
+  const handleSearch = (evt) => {
+    const name = evt.target.name;
+    let value;
+    if (evt.target.type === "checkbox") {
+      value = evt.target.checked;
+    } else {
+      value = evt.target.value;
+    }
+    setState((d) => ({ ...d, [name]: value }));
+  };
   return (
-    <form action="" className="w-full">
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className="w-full max-w-7xl mx-auto px-3 md:px-0"
+    >
       <div className="mb-3">
         <input
           type="search"
@@ -9,7 +24,7 @@ const SearchBar = ({ filterText, inStockOnly, handleFilterChange }) => {
           placeholder="Search..."
           value={filterText}
           id="search"
-          onChange={handleFilterChange}
+          onChange={handleSearch}
         />
       </div>
       <div className="mb-3">
@@ -17,7 +32,7 @@ const SearchBar = ({ filterText, inStockOnly, handleFilterChange }) => {
           type="checkbox"
           name="inStockOnly"
           checked={inStockOnly}
-          onChange={handleFilterChange}
+          onChange={handleSearch}
           id="instock"
           className="border shadow"
         />
@@ -27,5 +42,5 @@ const SearchBar = ({ filterText, inStockOnly, handleFilterChange }) => {
       </div>
     </form>
   );
-};
+});
 export default SearchBar;

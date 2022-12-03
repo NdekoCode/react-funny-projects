@@ -4,7 +4,7 @@ import { PRODUCTS } from "../data/utils";
 
 const Products = () => {
   return (
-    <div className="max-w-7xl mx-auto mt-5">
+    <div className="mt-5 w-full max-w-7xl mx-auto px-3">
       <FilterableProductTable products={PRODUCTS} />
     </div>
   );

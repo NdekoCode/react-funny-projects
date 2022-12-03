@@ -1,10 +1,17 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-const ProductTable = ({ products }) => {
+const ProductTable = ({ products, inStockOnly, filterText }) => {
   const rows = [];
   let lastCategory = null;
   products.forEach((product, index) => {
+    if (
+      (inStockOnly && !product.stocked) ||
+      !product.name.includes(filterText)
+    ) {
+      // On saute ce produit
+      return null;
+    }
     if (product.category !== lastCategory) {
       lastCategory = product.category;
       rows.push(
