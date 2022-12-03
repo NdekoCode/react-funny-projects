@@ -13,7 +13,7 @@ function App() {
       <Route path="/increment" element={<Incrementor />} />
       <Route path="/form" element={<Formular />} />
       <Route path="/converter" element={<Converter />} />
-      <Route path="/produts" element={<Products />} />
+      <Route path="/products" element={<Products />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

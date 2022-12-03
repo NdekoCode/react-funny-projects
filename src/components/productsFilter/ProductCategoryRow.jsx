@@ -1,7 +1,9 @@
-const ProductCategoryRow = ({ name }) => {
+const ProductCategoryRow = ({ category }) => {
   return (
     <tr>
-      <td colSpan={2}>{name}</td>
+      <th colSpan={2} className="py-4 px-6 font-medium text-gray-700 border-b">
+        {category}
+      </th>
     </tr>
   );
 };
