@@ -1,10 +1,16 @@
-import React, { useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 
 const WithRef = () => {
   const input = useRef(null);
   const handleClick = () => {
     console.log(input.current.value);
   };
+  const button = useRef(null);
+  useLayoutEffect(() => {
+    button.current.addEventListener("mouseover", function () {
+      this.style.color = "red";
+    });
+  }, []);
   console.log(input);
   return (
     <div>
@@ -18,7 +24,9 @@ const WithRef = () => {
           name="name"
         />
       </div>
-      <button onClick={handleClick}>Get the value</button>
+      <button onClick={handleClick} ref={button}>
+        Get the value
+      </button>
     </div>
   );
 };
