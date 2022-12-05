@@ -1,6 +1,4 @@
-import { memo } from "react";
-
-const SearchBar = memo(({ filterText, inStockOnly, setState }) => {
+const SearchBar = ({ filterText, inStockOnly, setState }) => {
   const handleSearch = (evt) => {
     const name = evt.target.name;
     let value;
@@ -42,5 +40,5 @@ const SearchBar = memo(({ filterText, inStockOnly, setState }) => {
       </div>
     </form>
   );
-});
+};
 export default SearchBar;

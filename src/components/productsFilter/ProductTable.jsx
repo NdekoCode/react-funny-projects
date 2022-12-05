@@ -15,7 +15,12 @@ const ProductTable = ({ products, inStockOnly, filterText }) => {
     if (product.category !== lastCategory) {
       lastCategory = product.category;
       rows.push(
-        <ProductCategoryRow category={lastCategory} key={index} index={index} />
+        <ProductCategoryRow
+          onClick={() => (this.demo = "hello")}
+          category={lastCategory}
+          key={index}
+          index={index}
+        />
       );
     }
     rows.push(

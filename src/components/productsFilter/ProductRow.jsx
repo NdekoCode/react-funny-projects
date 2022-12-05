@@ -1,8 +1,6 @@
 import { memo } from "react";
 
 const ProductRow = memo(({ product, index }) => {
-  // wait(500);
-  console.log("render");
   return (
     <tr className={`${index % 2 !== 0 ? "bg-gray-50" : "bg-white"} border-b`}>
       <th
