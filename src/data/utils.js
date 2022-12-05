@@ -51,3 +51,7 @@ export const PRODUCTS = [
   },
   { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" },
 ];
+export function encoded(value) {
+  wait(1000);
+  return Date.now();
+}

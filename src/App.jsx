@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Blog from "./pages/Blog";
 import Converter from "./pages/Converter";
+import EncodedMemo from "./pages/Encoded";
 import Formular from "./pages/Formular";
 import Home from "./pages/Home";
 import Incrementor from "./pages/Incrementor";
@@ -16,6 +17,7 @@ function App() {
       <Route path="/form" element={<Formular />} />
       <Route path="/converter" element={<Converter />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/encode" element={<EncodedMemo />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
