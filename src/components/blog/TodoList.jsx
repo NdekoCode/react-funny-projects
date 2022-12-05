@@ -1,21 +1,17 @@
-import { useEffect } from "react";
+import { useFetch } from "../../hooks/useUtils";
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=10"
-      );
-      const responseData = await response.json();
-      if (response.ok) {
-        setTodos(responseData);
-      }
-    })();
-  }, []);
+  const [todos, loading] = useFetch(
+    "https://jsonplaceholder.typicode.com/todos?_limit=10"
+  );
+  if (loading) {
+    return "Loading...";
+  }
   return (
-    <ul>
+    <ul className="list-inside list-disc">
       {todos.map((todo) => (
-        <li key={todo.id}>{todo.title}</li>
+        <li className="p-2 shadow" key={todo.id}>
+          {todo.title}
+        </li>
       ))}
     </ul>
   );

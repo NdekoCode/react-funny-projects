@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-function useFetch(url, data) {}
 export function useIncrement(initial = 0, step = 1) {
   const [count, setCount] = useState(initial);
   const increment = () => {
@@ -25,4 +24,22 @@ export function useAutoIncrement(initial = 0, step = 1) {
     };
   }, []);
   return [count, increment];
+}
+export function useFetch(url) {
+  const [state, setState] = useState({
+    items: [],
+    loading: true,
+  });
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(url);
+      const responseData = await response.json();
+      if (response.ok) {
+        setState({ items: responseData, loading: false });
+      } else {
+        setState((d) => ({ ...d, loading: false }));
+      }
+    })();
+  }, []);
+  return [state.items, state.loading];
 }
