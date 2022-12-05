@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useMemo, useState } from "react";
+import WithRef from "../components/form/WithRef";
 import { encoded } from "../data/utils";
 const Button = memo(({ onClick }) => {
   console.log("render");
@@ -44,6 +45,7 @@ const EncodedMemo = () => {
         <button onClick={() => setCount((c) => c + 1)}>
           Increment {count}
         </button>
+        <WithRef />
       </div>
       <h2 className="text-3xl text-gray-600 my-3 font-bold">Encoded</h2>
       {encode}
