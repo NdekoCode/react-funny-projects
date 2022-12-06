@@ -8,7 +8,7 @@ const WithRef = () => {
   const button = useRef(null);
   useLayoutEffect(() => {
     button.current.addEventListener("mouseover", function () {
-      this.style.color = "red";
+      this.classList.add("bg-green-400");
     });
   }, []);
   console.log(input);
