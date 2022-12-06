@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState } from "react";
+import { createContext, useCallback, useMemo, useState } from "react";
 
 export const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
@@ -19,9 +19,12 @@ export const AppContextProvider = ({ children }) => {
     () => setCurrentTheme(currentTheme === "light" ? "dark" : "light"),
     [currentTheme]
   );
-  const value = {
-    theme: theme[currentTheme],
-    toggleTheme,
-  };
+  const value = useMemo(
+    () => ({
+      theme: theme[currentTheme],
+      toggleTheme,
+    }),
+    [currentTheme]
+  );
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
