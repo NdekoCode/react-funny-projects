@@ -1,9 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import AutoCompter from "./AutoCompter";
 import Compter from "./Compter";
 import ToggleCompter from "./ToggleCompter";
-
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    case "reset":
+      return 0;
+    default:
+      throw new Error(
+        "Impossible de faire des operation avec cette action qui est inconnu"
+      );
+  }
+}
 const ManuelIncrement = () => {
+  const [timer, setTimer] = useState();
+  // useReducer retourner la valeur de l'etat mais aussi un dispatcher: un dispatcher est une fonction qui devra etre appeler et à qui on passera une action, cette action permettra de declencher un type de mutation particulier
+  const [count, dispatch] = useReducer(reducer, 0);
   const [state, setState] = useState({ count: 0, timer: null });
   const increment = () => {
     setState((state) => ({ ...state, count: state.count + 1 }));
@@ -40,6 +56,9 @@ const ManuelIncrement = () => {
   }, []);
   return (
     <div className="px-2 py-3 shadow">
+      <button onClick={dispatch({ type: "increment" })}>
+        Incrementer {count}
+      </button>
       <ToggleCompter />
       <Compter initial={3} step={5} />
       <AutoCompter />
