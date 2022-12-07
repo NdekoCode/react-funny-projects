@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Context from "./pages/Context";
 import Converter from "./pages/Converter";
@@ -19,6 +20,7 @@ function App() {
       <Route path="/products" element={<Products />} />
       <Route path="/context" element={<Context />} />
       <Route path="/encode" element={<EncodedMemo />} />
+      <Route path="/about" element={<About />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
