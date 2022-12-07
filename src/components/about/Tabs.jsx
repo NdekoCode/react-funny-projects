@@ -1,4 +1,5 @@
 import React, { Children, cloneElement, useCallback, useState } from "react";
+import ErrorBoundary from "../ErrorBoundary";
 
 const Tabs = ({ children }) => {
   const childrenArray = Children.toArray(children);
@@ -8,28 +9,31 @@ const Tabs = ({ children }) => {
     return cloneElement(child, { selected: child.key === current });
   });
   const handleCurrent = useCallback((v) => {
+    throw new Error();
     console.log("click");
     setCurrent(v);
   });
   return (
-    <div className="text-gray-900">
-      {children}
+    <ErrorBoundary>
+      <div className="text-gray-900">
+        {children}
 
-      <div className="container">
-        <nav>
-          {childrenArray.map((child) => (
-            <button
-              onClick={() => handleCurrent(child.key)}
-              className="m-1"
-              key={child.key}
-            >
-              {child.props.title}
-            </button>
-          ))}
-        </nav>
-        {newChildren}
+        <div className="container">
+          <nav>
+            {childrenArray.map((child) => (
+              <button
+                onClick={() => handleCurrent(child.key)}
+                className="m-1"
+                key={child.key}
+              >
+                {child.props.title}
+              </button>
+            ))}
+          </nav>
+          {newChildren}
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 
