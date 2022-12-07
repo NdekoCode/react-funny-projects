@@ -1,11 +1,12 @@
 import React from "react";
-import { ThemeButton } from "../../pages/Context";
+import ThemeButton from "./ThemeButton";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Toolbar = () => {
   return (
     <div>
-      Hey
       <ThemeButton>CLick me</ThemeButton>
+      <ThemeSwitcher />
     </div>
   );
 };

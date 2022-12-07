@@ -43,3 +43,8 @@ export function useFetch(url) {
   }, []);
   return [state.items, state.loading];
 }
+export function useVisible() {
+  const [visible, setVisible] = useState(false);
+  const handleVisible = () => setVisible((d) => !d);
+  return [visible, handleVisible];
+}
