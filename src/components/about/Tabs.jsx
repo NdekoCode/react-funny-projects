@@ -1,7 +1,6 @@
+import propTypes from "prop-types";
 import React, { Children, cloneElement, useCallback, useState } from "react";
-
 const Tabs = ({ children }) => {
-  throw new Error();
   const childrenArray = Children.toArray(children);
   const [current, setCurrent] = useState(childrenArray[0].key);
   const newChildren = childrenArray.map((child) => {
@@ -33,5 +32,7 @@ const Tabs = ({ children }) => {
     </div>
   );
 };
-
+Tabs.propTypes = {
+  children: propTypes.node.isRequired,
+};
 export default Tabs;
