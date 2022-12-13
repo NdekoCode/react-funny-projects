@@ -3,6 +3,7 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Context from "./pages/Context";
 import Converter from "./pages/Converter";
+import Donk from "./pages/Donk";
 import EncodedMemo from "./pages/Encoded";
 import Formular from "./pages/Formular";
 import Home from "./pages/Home";
@@ -21,6 +22,7 @@ function App() {
       <Route path="/context" element={<Context />} />
       <Route path="/encode" element={<EncodedMemo />} />
       <Route path="/about" element={<About />} />
+      <Route path="/donk" element={<Donk />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
