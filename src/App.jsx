@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ProfileProvider } from "./components/context/ProfileData";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Context from "./pages/Context";
@@ -22,7 +23,14 @@ function App() {
       <Route path="/context" element={<Context />} />
       <Route path="/encode" element={<EncodedMemo />} />
       <Route path="/about" element={<About />} />
-      <Route path="/donk" element={<Donk />} />
+      <Route
+        path="/donk"
+        element={
+          <ProfileProvider>
+            <Donk />
+          </ProfileProvider>
+        }
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

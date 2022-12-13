@@ -1,9 +1,12 @@
 import React from "react";
+import { ProfileData } from "../components/context/ProfileData";
 import DisplayKey from "../components/opt/DisplayKey";
 import UseEff from "../components/opt/UseEff";
 import { useIsVisible } from "../hooks/useUtils";
 
 const Donk = () => {
+  const { profile } = ProfileData();
+  console.log(profile);
   const [visible, toggleVisible] = useIsVisible();
   return (
     <div>
