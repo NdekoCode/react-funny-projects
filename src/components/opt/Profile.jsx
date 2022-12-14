@@ -1,7 +1,15 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useIncrement } from "../../hooks/useUtils";
 import TableUser from "./TableUser";
 const Profile = memo(() => {
+  const input = useRef(null);
   const [count, increnement] = useIncrement(1);
   const [user, setUser] = useState({});
   const [userLoading, setLoading] = useState(true);
@@ -59,6 +67,10 @@ const Profile = memo(() => {
     setIsDark((d) => !d);
     document.body.className = theme;
   }, [theme]);
+  const handleChange = (evt) => {
+    const value = evt.target.value;
+    console.log(value);
+  };
   const isEnderTen = useMemo(() => count < 10, [count]);
   useEffect(() => {
     (async () => {
@@ -77,15 +89,19 @@ const Profile = memo(() => {
 
   return (
     <div className="mt-5 w-full max-w-7xl mx-auto px-3">
-      <h1 className="font-bold text-4xl my-3">useMemo</h1>
+      <h1 className="font-bold text-4xl my-3">
+        useMemo {input.current?.value}
+      </h1>
       <form className="w-full max-w-7xl mx-auto px-3 md:px-0">
         <div className="mb-3">
           <input
+            ref={input}
             type="search"
             className="text-gray-600 outline-none shadow border w-full rounded-md px-2.5 py-2"
             name="filterText"
             placeholder="Search..."
             id="search"
+            onChange={handleChange}
             defaultValue=""
           />
         </div>
