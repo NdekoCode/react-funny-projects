@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Incrementor from "./pages/Incrementor";
 import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
+import Users from "./pages/Users";
 function App() {
   return (
     <Routes>
@@ -23,6 +24,7 @@ function App() {
       <Route path="/context" element={<Context />} />
       <Route path="/encode" element={<EncodedMemo />} />
       <Route path="/about" element={<About />} />
+      <Route path="/users" element={<Users />} />
       <Route
         path="/donk"
         element={
