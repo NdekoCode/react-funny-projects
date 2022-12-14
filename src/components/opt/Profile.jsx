@@ -5,6 +5,12 @@ const Profile = () => {
   const [count, increnement] = useIncrement(1);
   const [user, setUser] = useState({});
   const [userLoading, setLoading] = useState(true);
+  const [isDark, setIsDark] = useState(false);
+  const handleTheme = () => {
+    setIsDark((d) => !d);
+    document.body.className = theme;
+  };
+  const theme = isDark ? "dark-theme" : "light-theme";
   const isEnderTen = useMemo(() => count < 10);
   useEffect(() => {
     let controller = new AbortController();
@@ -52,7 +58,10 @@ const Profile = () => {
             Increment {count}
           </button>
         )}
-        <button className="px-3 py-2 rounded-lg bg-gray-900 text-white ml-auto">
+        <button
+          onClick={handleTheme}
+          className="px-3 py-2 rounded-lg bg-gray-900 text-white ml-auto"
+        >
           Changer
         </button>
       </div>

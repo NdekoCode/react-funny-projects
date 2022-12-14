@@ -55,6 +55,29 @@ button:hover {
 .fade {
   animation: fade 0.3s linear forwards;
 }
+.dark-theme {
+  color: rgb(249 250 251) !important;
+  background-color: rgb(17 24 39) !important;
+  transition: 0.3s;
+}
+
+.dark-theme * {
+  color: rgb(249 250 251) !important;
+  background-color: initial !important;
+  transition: 0.3s;
+}
+.dark-theme button {
+  border-color: rgb(249 250 251) !important;
+  transition: 0.3s;
+}
+
+.light-theme button {
+  border-color: initial;
+}
+.light-theme {
+  background-color: rgb(249 250 251) !important;
+  color: rgb(17 24 39) !important;
+}
 @keyframes fadeEnter {
   from {
     opacity: 0.55;
