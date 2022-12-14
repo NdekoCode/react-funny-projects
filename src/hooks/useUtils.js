@@ -44,23 +44,6 @@ export function useFetch(url) {
   }, []);
   return [state.items, state.loading];
 }
-export function useFetchData(url, setData) {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(url);
-      const responseData = await response.json();
-      if (response.ok) {
-        setLoading(false);
-        setData(responseData);
-      } else {
-        setLoading(false);
-      }
-      console.log(responseData);
-    })();
-  }, []);
-  return [loading, setLoading];
-}
 export function useVisible() {
   const [visible, setVisible] = useState(false);
   const handleVisible = useCallback(() => setVisible((d) => !d));
