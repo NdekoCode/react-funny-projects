@@ -73,10 +73,12 @@ button:hover {
 
 .light-theme button {
   border-color: initial;
+  transition: 0.3s;
 }
 .light-theme {
   background-color: rgb(249 250 251) !important;
   color: rgb(17 24 39) !important;
+  transition: 0.3s;
 }
 @keyframes fadeEnter {
   from {
