@@ -5,20 +5,18 @@ import ToggleCompter from "./ToggleCompter";
 function reducer(state, action) {
   switch (action.type) {
     case "increment":
-      return { count: state.count + action.payload || 1 };
+      return { ...state, count: state.count + (action.payload || 1) };
     case "decrement":
       if (state > 0) {
-        return { count: state.count - action.payload || 1 };
+        return { ...state, count: state.count - (action.payload || 1) };
       }
-      return state.count;
+      return state;
     case "reset":
       return init(0);
     case "pause":
-      return state.count;
+      return state;
     default:
-      throw new Error(
-        "Impossible de faire des operation avec cette action qui est inconnu"
-      );
+      return state;
   }
 }
 function init(initialValue) {
@@ -31,7 +29,7 @@ const ManuelIncrement = () => {
   // useReducer retourner la valeur de l'etat mais aussi un dispatcher: un dispatcher est une fonction qui devra etre appeler et à qui on passera une action, cette action permettra de declencher un type de mutation particulier
   const [state, dispatch] = useReducer(reducer, 0, init);
   const pause = () => {
-    console.log(timer);
+    console.log(state);
     window.clearInterval(timer);
     setTimer(null);
   };

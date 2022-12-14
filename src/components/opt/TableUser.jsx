@@ -1,6 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
-const TableUser = ({ count, user }) => {
+const TableUser = memo(({ count, user }) => {
+  console.log("render");
   return (
     <table className="table-auto text-gray-500 w-full text-sm border rounded-lg shadow-md">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -45,6 +46,6 @@ const TableUser = ({ count, user }) => {
       </tbody>
     </table>
   );
-};
+});
 
 export default TableUser;
